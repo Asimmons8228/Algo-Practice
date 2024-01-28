@@ -190,3 +190,93 @@ const targetSum = 9;
 
 const twoSumResult = twoSum(numsArray, targetSum);
 console.log(twoSumResult);
+
+
+// Write a function called hasVowels that takes in an array of words and returns a new array of only those words that contain one or more vowels.
+
+// Input: hasVowels(['jon', 'ada', 'ppzpp', 'brgggg', 'eric'])
+// Output: ['jon', 'ada', 'eric']
+
+function hasVowels(words){
+    vowels= ['a','e','i','o','u']
+
+    return words.filter(word =>{
+        return vowels.some(vowel => word.toLowerCase().includes(vowel))
+    });
+}
+
+const inputArray = ['jon', 'ada', 'ppzpp', 'brgggg', 'eric'];
+const vowelresult = hasVowels(inputArray);
+console.log(vowelresult);
+
+// Write a function called isPrime, that takes in a positive integer and returns
+// True if number is Prime, otherwise false
+
+// Input: isPrime(10)
+// Output: False
+
+// Input: isPrime(13)
+// Output: True
+
+function isPrime(num){
+    if (num <= 1){
+        return false;
+    }
+    for (let i = 2; i<= Math.sqrt(num); i++){
+        if (num % i === 0){
+            return false
+        }
+    }
+    return true;
+}
+
+console.log(isPrime(10));
+console.log(isPrime(13));
+
+
+// Write a function called uniqueVals that will return an array of unique values, no duplicates allowed. It will accept 2 arguments, the first will be the desired length of the returned array and the second will the be the max value in the random set.
+
+// Input: uniqueVals(5,10)
+// Possible Output: [1,7,3,9,2]
+
+function uniqueVals(length,maxValue){
+    const uniqueArray=[];
+
+    while (uniqueArray.length < length){
+        const randomNum= Math.floor(Math.random() * maxValue) + 1;
+
+        if (!uniqueArray.includes(randomNum)){
+            uniqueArray.push(randomNum)
+        }
+    }
+    return uniqueArray
+}
+
+const randomresult = uniqueVals(5,10);
+console.log(randomresult)
+
+// Write a function called greatestCommomFactor that, given two distinct positive integers,
+// returns the greatest common factor of those two values
+
+// Input: greatestCommonFactor(9,12)
+// Output: 3
+
+// Input: greatestCommonFactor(6,18)
+// Output: 6
+
+// Input: greatestCommonFactor(7,11)
+// Output: 1
+
+function greatestCommonFactor(num1,num2){
+    while(num2 !== 0){
+        const temp = num2
+        num2 = num1 % num2
+        num1 = temp
+    }
+    return num1;
+}
+
+console.log(greatestCommonFactor(9, 12));
+console.log(greatestCommonFactor(6, 18)); 
+console.log(greatestCommonFactor(7, 11)); 
+
